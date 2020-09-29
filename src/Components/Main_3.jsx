@@ -183,8 +183,8 @@ function Main_3(props) {
           <div
             style={{
               position: "relative",
-              width: "370px",
-              height: "320px",
+              width: "330px",
+              height: "280px",
               overflow: "hidden",
               boxShadow: "1rem 1rem 1rem #4a3d3d",
             }}
@@ -215,8 +215,8 @@ function Main_3(props) {
             style={{
               overflow: "hidden",
               position: "relative",
-              width: "500px",
-              height: "430px",
+              width: "450px",
+              height: "370px",
               margin: "0 50px 30px 50px",
               boxShadow: "1rem 1rem 1rem #4a3d3d",
             }}
@@ -248,8 +248,8 @@ function Main_3(props) {
             style={{
               overflow: "hidden",
               position: "relative",
-              width: "370px",
-              height: "320px",
+              width: "330px",
+              height: "280px",
               boxShadow: "1rem 1rem 1rem #4a3d3d",
             }}
           >

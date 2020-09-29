@@ -3,7 +3,8 @@
 .App {
   background-color: rgb(254, 251, 244);
   height: 3000px;
-  width: 100%;
+  min-width: 1600px;
+  max-width: 100%;
 }
 /*Navbar*/
 .navbar {
@@ -53,21 +54,21 @@
   height: 700px;
   display: flex;
   padding-top: 50px;
+  justify-content: center;
 }
 .main_1 h3 {
   text-indent: 30px;
   font-weight: 300;
 }
 .main_1_sub {
-  width: 600px;
-  position: absolute;
+  width: 720px;
   height: 700px;
-  padding: 80px 0 0 60px;
+  padding: 80px 0 0 10px;
 }
 .main_1 h2 {
-  width: 700px;
-  font-size: 50px;
-  padding: 100px 0 0 60px;
+  width: 600px;
+  font-size: 43px;
+  padding: 100px 0 0 30px;
   margin: 0;
 }
 
@@ -77,19 +78,16 @@
   padding: 0px 0 0 60px;
 }
 .main_1_sub:last-child {
-  width: 930px;
-  position: absolute;
   height: 700px;
   background-image: url("./img//wall.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: center;
-  right: 0;
 }
 .slide_show {
   position: relative;
   width: 700px;
-  max-height: 500px;
+  height: 500px;
   overflow: hidden;
   background-color: #756363;
 }
@@ -125,15 +123,14 @@
   height: 400px;
   background-image: url(./img/wall_sup.png);
   background-repeat: no-repeat;
-  margin: 10px 50px;
 }
 .slides.show_1 p {
   font-size: 30px;
-  padding: 0px 0 0 60px;
+  padding: 20px 0 0 60px;
   color: #bda7a4;
   top: 70px;
   transform: rotate(90deg);
-  right: -100px;
+  right: -10px;
   position: absolute;
 }
 #x {
@@ -234,15 +231,15 @@
 }
 .corousel_1 {
   position: absolute;
-  width: 370px;
-  height: 320px;
+  width: 330px;
+  height: 280px;
   background-color: #756363;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .corousel_main {
-  width: 500px;
-  height: 430px;
+  width: 450px;
+  height: 370px;
   background-color: wheat;
   position: absolute;
   background-repeat: no-repeat;
