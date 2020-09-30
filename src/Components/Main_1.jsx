@@ -30,10 +30,9 @@ function Main_1(props) {
     <div className="main_1">
       <div className="main_1_sub">
         <h2>Fine Art Student at Fashing Institute of Technology</h2>
-        <h5>Art is Everywhere, Life is Art</h5>
+        <h5> ~ Art is Everywhere, Life is Art</h5>
       </div>
       <div className="main_1_sub">
-        <span style={{ fontSize: "40px", color: "#573f41" }}>. . .</span>
         <div className="slide_show">
           <div className="slide_show_container">
             <div className="slides show_1">
@@ -43,20 +42,20 @@ function Main_1(props) {
             <div style={{ display: "flex" }}>
               <div className="slides show_2">
                 <div></div>
-                <h3>Study of Still-life</h3>
+                <p>Study of Still-life</p>
               </div>
               <div className="slides show_3">
                 <div></div>
-                <h3>Portrait of a Woman</h3>
+                <p>Portrait of a Woman</p>
               </div>
             </div>
             <div className="slides show_4">
               <div></div>
-              <h3>Study of Watercolor</h3>
+              <p>Study of Watercolor</p>
             </div>
             <div className="slides show_5">
               <div></div>
-              <h3>Self Portrait - Collage</h3>
+              <p>Self Portrait - Collage</p>
             </div>
           </div>
         </div>
