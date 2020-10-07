@@ -41,6 +41,7 @@ function Navbar(props) {
           fontSize: "21px",
           color: "#47403f",
           padding: "20px",
+          lineHeight: "30px",
         }}
       >
         Daxian Zhao(Dylan) Fine Art student at Fashion Institute of Technology.
@@ -57,7 +58,6 @@ function Navbar(props) {
           width: "200px",
           fontSize: "23px",
           color: "#47403f",
-          
         }}
       >
         Currently No Sales Available <FontAwesomeIcon icon={faGrinBeamSweat} />
@@ -87,13 +87,7 @@ function Navbar(props) {
 
   return (
     <div className="navbar">
-      <span>
-        DylanzArt
-        <FontAwesomeIcon
-          icon={faPencilAlt}
-          style={{ fontSize: "35px", color: "#bae0d3", margin: "0 0 7px 7px" }}
-        />
-      </span>
+      <span>DylanzArt</span>
       <div className="navbar_center">
         <a
           onMouseEnter={() => setauthor(true)}
