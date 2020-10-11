@@ -647,14 +647,19 @@ button.focus {
   flex-wrap: wrap;
   min-height: 300px;
 }
+.cate_div {
+  line-height: 70px;
+  white-space: nowrap;
+}
 .sort {
+  position: relative;
   height: 400px;
   width: 100%;
   background-color: #302828;
   color: white;
-  padding: 100px 200px;
+  padding: 100px 100px;
   box-sizing: border-box;
-  font-size: 35px;
+  font-size: 25px;
 }
 .sort label {
   margin-left: 20px;
@@ -691,10 +696,10 @@ label.active {
 }
 .info span {
   box-sizing: border-box;
-  color: antiquewhite;
+  color: white;
   font-weight: 300;
   font-size: 25px;
-  border: 2px solid #9c8c92;
+  border: 2px solid #b89595;
   border-radius: 30px;
   padding: 7px;
   margin-left: 10px;
@@ -716,6 +721,8 @@ label.active {
 /*Upload*/
 
 .upload {
+  font-family: "Josefin Slab", serif;
+  box-sizing: border-box;
   background: #504640;
   background: -webkit-linear-gradient(top left, #504640, #000000);
   background: -moz-linear-gradient(top left, #504640, #000000);
@@ -830,7 +837,6 @@ input[type="file"] {
 
 /* Attributes upload */
 .up_grid.attr {
-  box-sizing: border-box;
   padding: 30px 40px;
   position: relative;
   text-align: left;
@@ -847,7 +853,7 @@ input[type="file"] {
 .att_tag {
   cursor: pointer;
   font-size: 20px;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Josefin Slab", serif;
   background: rgba(255, 222, 241, 0.6);
   color: #241d1d;
   display: inline-block;
@@ -901,7 +907,7 @@ input[type="file"] {
 
 #attr_input {
   font-size: 20px;
-  display: block;
+  display: inline-block;
   height: 32px;
   padding: 0.1rem 0.4rem;
   font-size: 1rem;
@@ -909,8 +915,8 @@ input[type="file"] {
   background-color: #fff;
   border: 1px solid #ced4da;
   border-radius: 5px;
-  margin-bottom: 10px;
-  width: 180px;
+  margin: 0;
+  width: 80px;
 }
 #attr_input:hover {
   border: 1px solid pink;
@@ -964,4 +970,56 @@ input[type="file"] {
   font-size: 13px;
   bottom: 30px;
   right: 150px;
+}
+
+/*search*/
+
+.search_container {
+  position: absolute;
+  width: 150px;
+  height: 30px;
+  right: 15%;
+  bottom: 170px;
+  transition: all 0.5s ease-in;
+}
+.searchbar {
+  position: absolute;
+  background-color: transparent;
+  border: white;
+  color: white;
+  outline: 0;
+  width: 80%;
+  left: 30px;
+  height: 100%;
+  padding: 5px;
+  font-size: 20px;
+}
+.search_container::before {
+  font-family: "fontawesome";
+  position: absolute;
+  content: "\f002";
+  font-size: 25px;
+  background: -webkit-linear-gradient(#faebd7, #f7baed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 1s ease-in-out;
+  left: 0;
+  z-index: 50;
+}
+
+.search_container::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #d1a3a3;
+  left: 0px;
+  bottom: -8px;
+  transform: scaleX(1.25);
+  transition: 1s ease-in-out;
+  transform-origin: left;
+}
+
+.search_container:focus-within::before {
+  transform: translateX(150px);
 }
