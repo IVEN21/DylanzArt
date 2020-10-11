@@ -6,7 +6,7 @@ function Main_4(props) {
     <div className="Main_4">
       <ToastContainer style={{ textAlign: "center", color: "#423842" }} />
       <div className="Main_4_left">
-        <img src={require("../img/guitar.jpg")} width="500px" height="600px" />
+        <img src={require("../img/guitar.jpg")} alt="guitar" width="500px" height="600px" />
         <p>Study of Light and Composition</p>
       </div>
       <div className="Main_4_right">

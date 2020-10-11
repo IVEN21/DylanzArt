@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useSpring, animated, config } from "react-spring";
+import { useSpring, animated } from "react-spring";
 import {
   faAngleUp,
-  faPencilAlt,
   faGrinBeamSweat,
   faSmileBeam,
-  faSmile,
 } from "@fortawesome/free-solid-svg-icons";
+import Login from "./Login";
+import { Link, NavLink} from "react-router-dom";
+import { getCurrrentUser, logout } from "./BackendService/authService";
 
 function Navbar(props) {
+  const user = getCurrrentUser();
   const [author, setauthor] = useState(false);
   const [product, setproduct] = useState(false);
   const [contact, setcontact] = useState(false);
+  const [login_open, set_login] = useState(false);
+
   const animation_a = useSpring({
     from: { transform: "translate3d(-280px,-30px,0)", opacity: 0 },
     transform: author
@@ -87,11 +91,14 @@ function Navbar(props) {
 
   return (
     <div className="navbar">
-      <span>DylanzArt</span>
+      <span>
+        <Link to="/"> DylanzArt</Link>
+      </span>
       <div className="navbar_center">
         <a
           onMouseEnter={() => setauthor(true)}
           onMouseLeave={() => setauthor(false)}
+          
         >
           About Author
           <FontAwesomeIcon
@@ -140,11 +147,19 @@ function Navbar(props) {
                   }
                 : { transform: "translateX(5px)" }
             }
-          />{" "}
+          />
           {contact && Contact_content()}
         </a>
+        <NavLink to="/upload" className="nav_upload">
+          Upload
+        </NavLink>
       </div>
-      <span>Log In</span>
+      {<Login login_open={login_open} set_login={set_login} />}
+      {
+        
+        (!user)?
+        <span onClick={() => set_login(true)} style={{backgroundColor:"#bae6b5"}}>Log In </span>
+        :   <span onClick={()=> {logout();  window.location = "/"; }}style={{backgroundColor:"#cc9399"}} >Log Out</span>}
     </div>
   );
 }

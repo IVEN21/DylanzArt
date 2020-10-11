@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTransition, animated, config } from "react-spring";
 
@@ -41,7 +41,7 @@ function Main_3(props) {
     {
       id: 5,
       img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1601312580/pic/p4_amnaaw.jpg",
+        "https://res.cloudinary.com/du7vltati/image/upload/v1601312580/Woman%20and%20Still-life.jpg",
       line: "Woman and Still-life",
     },
     {
@@ -160,7 +160,6 @@ function Main_3(props) {
       if (main_index === 1) return 6;
       else return main_index - 1;
     }
-    console.log(index());
     return (
       <span className="index_span">
         {" "}

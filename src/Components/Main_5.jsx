@@ -1,156 +1,88 @@
-import React, { useState, useRef } from "react";
-import {
-  animated,
-  useTrail,
-  useSpring,
-  useChain,
-  useTransition,
-  config,
-} from "react-spring";
+import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGrinHearts } from "@fortawesome/free-solid-svg-icons";
 import Drawing from "./Drawing";
-function Main_5(props) {
-  const drawings = [
-    {
-      id: 0,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1602106335/pic/slide3_zs8npt.jpg",
-    },
-    {
-      id: 1,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1602106335/pic/slide3_zs8npt.jpg",
-    },
-    {
-      id: 2,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1601312592/pic/p5_aycwp4.jpg",
-    },
-    {
-      id: 3,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1602106222/pic/wall_j2oon6.png",
-    },
-    {
-      id: 4,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1601312583/pic/p3_frezdp.jpg",
-    },
-    {
-      id: 5,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1602106335/pic/slide3_zs8npt.jpg",
-    },
-    {
-      id: 6,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1602106335/pic/slide3_zs8npt.jpg",
-    },
-    {
-      id: 7,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1601332837/pic/73c8ffd108af42e353e714b1211fe4a_ynaipe.jpg",
-    },
-    {
-      id: 8,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1601312592/pic/p5_aycwp4.jpg",
-    },
-    {
-      id: 9,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1601312589/pic/p2_qvdxwn.jpg",
-    },
-    {
-      id: 10,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1602106335/pic/slide3_zs8npt.jpg",
-    },
-    {
-      id: 11,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1602106335/pic/slide3_zs8npt.jpg",
-    },
-    {
-      id: 12,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1601312592/pic/p5_aycwp4.jpg",
-    },
-    {
-      id: 13,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1602106222/pic/wall_j2oon6.png",
-    },
-    {
-      id: 14,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1601312583/pic/p3_frezdp.jpg",
-    },
-    {
-      id: 15,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1602106335/pic/slide3_zs8npt.jpg",
-    },
-    {
-      id: 16,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1602106335/pic/slide3_zs8npt.jpg",
-    },
-    {
-      id: 17,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1601332837/pic/73c8ffd108af42e353e714b1211fe4a_ynaipe.jpg",
-    },
-    {
-      id: 18,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1601312592/pic/p5_aycwp4.jpg",
-    },
-    {
-      id: 19,
-      img:
-        "https://res.cloudinary.com/du7vltati/image/upload/v1601312589/pic/p2_qvdxwn.jpg",
-    },
-  ];
-  const [gallery_open, setOpen] = useState(false);
-  const [info_on, info_toggle] = useState(false);
-  const springRef = useRef();
-  const { size } = useSpring({
-    from: { size: "20%", backgroundColor: "pink" },
-    to: { size: gallery_open ? "100%" : "20%" },
-    ref: springRef,
-    config: { friction: 20 },
-  });
+import { getDrawings } from "./BackendService/dbService";
+import { toast } from "react-toastify";
 
-  const transitionRef = useRef();
-
-  const animation = useTransition(
-    gallery_open ? drawings : [],
-    (drawings) => drawings.id,
-    {
-      ref: transitionRef,
-      from: { opacity: 0, transform: "scale(0)" },
-      enter: { opacity: 1, transform: "scale(1)" },
-      leave: { opacity: 0, transform: "scale(0)" },
-      trail: 400 / drawings.length,
-      config: config.gentle,
+class Main_5 extends Component {
+  state = {
+    sortName: "all",
+    drawings: [],
+  }
+  async componentDidMount() {
+    try {
+      const data = await getDrawings();
+      this.setState({ drawings: data })
+    } catch (error) {
+      toast.error("Something Wrong With Api Fetching")
     }
-  );
-  useChain(
-    gallery_open ? [springRef, transitionRef] : [transitionRef, springRef]
-  );
-  return (
-    <div className="Main_5">
-      <animated.div
-        className="Gallery"
-        onClick={() => setOpen(!gallery_open)}
-        style={{ width: size, height: size }}
-      >
-        {animation.map(({ item, key, props }) => (
-          <Drawing drawing={item} style={props} key={key} />
-        ))}
-      </animated.div>
-    </div>
-  );
+  }
+
+  filter_drawings = () => {
+    const { drawings, sortName } = this.state
+    if (sortName === "all") {
+      return drawings;
+    } else {
+      var temp_drawings = [];
+      for (var i = 0; i < drawings.length; i++) {
+        for (var j = 0; j < drawings[i].tags.length; j++) {
+          if (drawings[i].tags[j].tag.toLowerCase() === sortName.toLowerCase()) temp_drawings.push(drawings[i]);
+        }
+      }
+      return temp_drawings;
+    }
+
+  };
+  setSortName = (item) => {
+    this.setState({ sortName: item })
+  }
+  render() {
+
+    const categories = () => { 
+      const cate = ["all", "ugly", "abstract"];
+
+      if(!cate.includes(this.state.sortName.toLowerCase())) cate.push(this.state.sortName)
+      return cate
+    
+  }
+
+    return (
+      <div className="Main_5">
+        <div className="sort">
+          <div style={{ width: "100%", textAlign: "center", color: "#f2e7da" }}>
+            <div style={{ fontSize: "50px", marginBottom: "50px" }}>
+              Welcome To My Gallery
+                <FontAwesomeIcon icon={faGrinHearts} style={{ color: "#edbec0",marginLeft:"19px" }} />
+            </div>
+          </div>
+          <br />
+          <br />
+            Categories:
+            {categories().map((item) => (
+            <label
+              key={item}
+              onClick={() => this.setState({
+                sortName: item
+              })}
+              className={item === this.state.sortName.toLowerCase() ? "active" : ""}
+            >
+              {item}
+            </label>
+          ))}
+        </div>
+        <div className="Gallery" >
+          <div className="main_5_container">
+            {this.filter_drawings().length > 0 ? this.filter_drawings().reverse().map((item) =>
+              <Drawing drawing={item} setSortName={this.setSortName} id={item._id} key={item._id} />
+            ) : <h1 style={{ color: "#ff9cac" }}>No Relevant Result found</h1>}
+          </div>
+        </div>
+      </div>
+
+    );
+  }
 }
 
 export default Main_5;
+
