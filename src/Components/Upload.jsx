@@ -56,7 +56,6 @@ class Upload extends Component {
         tags:this.state.tags,
         url: img_url,
       });
-      console.log(this.state.tags)
       this.setState({ loading: { load: false, text: "DONE!" } });
     } catch (error) {
       toast.error("Data Could Not be Uploaded Due to Api Problem");
