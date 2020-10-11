@@ -301,6 +301,7 @@ button.focus {
   text-indent: 30px;
   font-weight: 300;
 }
+
 .main_1_sub {
   z-index: 2;
   width: 650px;
@@ -308,9 +309,10 @@ button.focus {
   padding: 50px 0 0 10px;
 }
 .main_1 h2 {
+  text-indent: 50px;
   font-weight: 500;
-  width: 600px;
-  font-size: calc(15px + 2vw);
+  width: 700px;
+  font-size: calc(15px + 4vh);
   padding: 100px 0 0 30px;
   margin: 0;
   color: #453e3e;
@@ -318,7 +320,7 @@ button.focus {
 
 .main_1 h5 {
   font-weight: 300;
-  font-size: calc(10px + 2vw);
+  font-size: calc(10px + 4vh);
   padding: 0px 0 0 30px;
   color: #453e3e;
 }

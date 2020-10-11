@@ -28,8 +28,8 @@ function Main_1(props) {
 
   return (
     <div className="main_1">
-      <div className="main_1_sub">
-        <h2>Fine Art Student at Fashing Institute of Technology</h2>
+      <div className="main_1_sub lo">
+        <h2>Fine Art Student at Fashing Institute of Technology.</h2>
         <h5> ~ Art is Everywhere, Life is Art</h5>
       </div>
       <div className="main_1_sub">
