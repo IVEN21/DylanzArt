@@ -71,7 +71,7 @@ class Attr extends Component {
         if (tags[i]) {
           if (tags[i].length > 0) {
             newtags[j] = {
-              attr: tags[i].charAt(0).toUpperCase() + tags[i].slice(1),
+              tag: tags[i].charAt(0).toUpperCase() + tags[i].slice(1),
             };
             j++;
           }
@@ -79,12 +79,11 @@ class Attr extends Component {
         if (empty_tags[i])
           if (empty_tags[i].length > 0) {
             newtags[j] = {
-              attr: empty_tags[i],
+              tag: empty_tags[i],
             };
             j++;
           }
       }
-      console.log(newtags);
       if (newtags.length > 5) {
         toast.error("Max 5 tags, please reduce!");
         return;
