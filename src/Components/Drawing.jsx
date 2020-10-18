@@ -27,8 +27,8 @@ function Drawing({ drawing, setSortName, id }) {
     enter: { transform: `translate3d(0,0,0)`, opacity: 1 },
     leave: { transform: `translate3d(0,200px,0)`, opacity: 0 },
     config: {
-      friction: 20,
-      tension: 200,
+      friction: 500,
+      tension: 3000,
     },
   });
 

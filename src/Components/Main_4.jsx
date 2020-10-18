@@ -10,12 +10,10 @@ function Main_4(props) {
         <p>Study of Light and Composition</p>
       </div>
       <div className="Main_4_right">
-        <h1>Blogging Tools</h1>
+        <h1>Still-life</h1>
         <p>
-          Take advantage of our powerful blogging tools to share your story,
-          post company news, or announce a product release. Categorize, share,
-          and schedule your posts to make your content work for you.
-        </p>
+          When we paint or create art, we are considering many elements. The compositions of the painting is what make the painting interesting, the colors that we use through out painting gives the impression to the viewers. The objects in the painting matters, the surface and the texture on the canvas pushed the painting to go further.
+Making art is about thinking.    </p>
         <h3 onClick={() => toast("Contact Author")}>Sponsor Me</h3>
       </div>
     </div>

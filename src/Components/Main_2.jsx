@@ -3,10 +3,9 @@ import React from "react";
 function Main_2(props) {
   return (
     <div className="main_2">
-      <h1>Award-Personal Art Designs</h1>
+      <h1>Look At The Objects Differently.</h1>
       <p>
-        Choose from an unrivaled set of best-in-class website templates.
-        Customize the design to fit your personal style and professional needs.
+        Learning art will teach you to look at colors in the world differently. Combine the colors together to create art.
       </p>
     </div>
   );
