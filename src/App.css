@@ -659,13 +659,15 @@ button.focus {
 }
 .sort label {
   margin-left: 20px;
-  background-color: #473e43;
+  text-decoration: underline;
   border-radius: 30px;
   cursor: pointer;
   padding: 5px 10px;
 }
 label.active {
-  background-color: #bd9b99;
+  background-color: #fff0f5;
+  color: #30272e;
+  text-decoration: none;
 }
 .drawing {
   display: inline-block;

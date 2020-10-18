@@ -88,9 +88,8 @@ class Main_5 extends Component {
         <div className="sort">
           <div style={{ width: "100%", textAlign: "center", color: "#f2e7da" }}>
             <div style={{ fontSize: "50px", marginBottom: "50px" }}>
-              Welcome To My Gallery
-                <FontAwesomeIcon icon={faGrinHearts} style={{ color: "#edbec0", marginLeft: "19px" }} />
-              {search_bar}
+              Gallery
+           {search_bar}
             </div>
           </div>
           <br />
