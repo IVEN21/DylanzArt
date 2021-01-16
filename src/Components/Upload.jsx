@@ -31,19 +31,19 @@ class Upload extends Component {
 
   //upload to cloundary
   images_upload = async () => {
-  var img_url = null;
-      try {
-        this.setState({
-          loading: { load: true, text: "Uploading Images to Cloud" },
-        });
-        const promise = await http.post(apiEndpoint + "/gallery/drawing_upload", {
-          data: this.state.img,
-        });
-       img_url = promise.data
-      } catch (err) {
-        toast.error("Images May Not be Uploaded Due to Api Problem");
-        return;
-      
+    var img_url = null;
+    try {
+      this.setState({
+        loading: { load: true, text: "Uploading Images to Cloud" },
+      });
+      const promise = await http.post(apiEndpoint + "/gallery/drawing_upload", {
+        data: this.state.img,
+      });
+      img_url = promise.data
+    } catch (err) {
+      toast.error("Images May Not be Uploaded Due to Api Problem");
+      return;
+
     }
     this.clips_info_upload(img_url);
   };
@@ -52,11 +52,11 @@ class Upload extends Component {
   clips_info_upload = async (img_url) => {
     try {
       this.setState({ loading: { load: true, text: "Uploading to API" } });
-     await http.post(apiEndpoint + "/gallery", {
-        tags:this.state.tags,
+      await http.post(apiEndpoint + "/gallery", {
+        tags: this.state.tags,
         url: img_url,
       });
-      this.setState({ loading: { load: false, text: "DONE!" } });
+      this.setState({ loading: { load: false, text: "DONE" } });
     } catch (error) {
       toast.error("Data Could Not be Uploaded Due to Api Problem");
       return;
@@ -65,7 +65,7 @@ class Upload extends Component {
   };
 
   render() {
-  
+
     return (
       <div className="upload main">
         <ToastContainer />
