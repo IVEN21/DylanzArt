@@ -636,12 +636,47 @@ button.focus {
 }
 .main_5_container {
   width: 90%;
+  display: grid;
+  grid-template-columns: repeat(4, 400px);
+  grid-template-rows: repeat(auto-fill, 400px);
+  grid-gap: 20px;
+}
+@media screen and (max-width: 1650px) {
+  .main_5_container {
+    grid-template-columns: repeat(3, 400px);
+  }
+}
+@media screen and (max-width: 1050px) {
+  .main_5_container {
+    grid-template-columns: repeat(2, 400px);
+  }
+}
+
+.drawings_container {
+  height: 400px;
+  width: 400px;
+  position: relative;
+  transition: all 0.25s;
   display: flex;
   justify-content: center;
-  box-sizing: border-box;
   align-items: center;
-  flex-wrap: wrap;
-  min-height: 300px;
+}
+.drawings {
+  transition: all 0.35s;
+  background-size: cover;
+  position: relative;
+  cursor: zoom-in;
+}
+.drawings::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+  clip-path: polygon(71% 0, 100% 0, 100% 25%, 23% 100%, 0 100%, 0 76%);
+  border: 1px solid white;
+  transition: all 0.35s;
 }
 .cate_div {
   line-height: 70px;
@@ -669,45 +704,31 @@ label.active {
   color: #30272e;
   text-decoration: none;
 }
-.drawing {
-  display: inline-block;
-  margin: 30px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: relative;
-  transition: all 0.4s ease;
-  overflow: hidden;
-}
-.drawing:hover {
-  transform: translateY(-10px);
-  box-shadow: 0rem 0.5rem 1.2rem#b1e7fa;
-}
 
 .info {
+  opacity: 0;
   position: absolute;
   width: 100%;
-  height: 130px;
+  height: 80px;
   bottom: 0;
-  background-color: rgba(77, 69, 72, 0.6);
-  padding: 20px 30px;
+  background-color: rgba(237, 195, 192, 0.1);
+  padding: 8px 5px 2px 15px;
   box-sizing: border-box;
+  transform: translate3d(0, 60px, 0) scale(1, 0);
+  transition: all 0.35s;
+  z-index: 200;
+}
+.drawings:hover .info {
+  opacity: 1;
+  transform: translate3d(0, 60px, 0) scale(1, 1);
 }
 .info span {
-  box-sizing: border-box;
-  color: white;
-  font-weight: 300;
-  font-size: 25px;
-  border: 2px solid #b89595;
-  border-radius: 30px;
-  padding: 7px;
-  margin-left: 10px;
-  margin-bottom: 7px;
-  display: inline-block;
-  width: fit-content;
-  cursor: pointer;
-}
-.info span:hover {
-  background-color: rgba(224, 180, 177, 0.5);
+  font-size: 18px;
+  padding: 4px 6px;
+  background-color: rgba(237, 195, 192, 0.8);
+  margin: 5px;
+  line-height: 32px;
+  color: #4f464a;
 }
 
 .no-relevant {
