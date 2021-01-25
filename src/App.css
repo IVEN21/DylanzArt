@@ -640,6 +640,7 @@ button.focus {
   grid-template-columns: repeat(4, 400px);
   grid-template-rows: repeat(auto-fill, 400px);
   grid-gap: 20px;
+  justify-content: center;
 }
 @media screen and (max-width: 1650px) {
   .main_5_container {
