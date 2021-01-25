@@ -647,7 +647,7 @@ button.focus {
     grid-template-columns: repeat(3, 400px);
   }
 }
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1250px) {
   .main_5_container {
     grid-template-columns: repeat(2, 400px);
   }
